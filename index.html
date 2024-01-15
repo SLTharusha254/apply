@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html data-bs-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Application - SLMTA - LKMTA</title>
+    <meta name="twitter:title" content="Sri Lanka Music Therapy Association">
+    <meta name="twitter:image" content="https://www.lkmta.site/assets/img/Artboard 1 (1).png">
+    <meta property="og:image" content="https://www.lkmta.site/assets/img/Artboard 1 (1).png">
+    <meta name="description" content="Immerse yourself in the transformative power of music, where the connoisseur's heart becomes the canvas for healing. Our innovative therapeutic approach harnesses the profound synergy between science and art, weaving a tapestry of sound frequencies that resonate deep within your soul.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="Immerse yourself in the transformative power of music, where the connoisseur's heart becomes the canvas for healing. Our innovative therapeutic approach harnesses the profound synergy between science and art, weaving a tapestry of sound frequencies that resonate deep within your soul.">
+    <script>
+        (function() {
+
+            // JavaScript snippet handling Dark/Light mode switching
+
+            const getStoredTheme = () => localStorage.getItem('theme');
+            const setStoredTheme = theme => localStorage.setItem('theme', theme);
+            const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
+
+            const getPreferredTheme = () => {
+
+                if (forcedTheme) return forcedTheme;
+
+                const storedTheme = getStoredTheme();
+                if (storedTheme) {
+                    return storedTheme;
+                }
+
+                const pageTheme = document.documentElement.getAttribute('data-bs-theme');
+
+                if (pageTheme) {
+                    return pageTheme;
+                }
+
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            const setTheme = theme => {
+                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                }
+            }
+
+            setTheme(getPreferredTheme());
+
+            const showActiveTheme = (theme, focus = false) => {
+                const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
+
+                if (!themeSwitchers.length) return;
+
+                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                    element.classList.remove('active');
+                    element.setAttribute('aria-pressed', 'false');
+                });
+
+                for (const themeSwitcher of themeSwitchers) {
+
+                    const btnToActivate = themeSwitcher.querySelector('[data-bs-theme-value="' + theme + '"]');
+
+                    if (btnToActivate) {
+                        btnToActivate.classList.add('active');
+                        btnToActivate.setAttribute('aria-pressed', 'true');
+                    }
+                }
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme();
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                    setTheme(getPreferredTheme());
+                }
+            });
+
+            window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme());
+
+                document.querySelectorAll('[data-bs-theme-value]')
+                    .forEach(toggle => {
+                        toggle.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const theme = toggle.getAttribute('data-bs-theme-value');
+                            setStoredTheme(theme);
+                            setTheme(theme);
+                            showActiveTheme(theme);
+                        })
+                    })
+            });
+        })();
+    </script>
+   
+    <link rel="icon" type="image/png" sizes="576x576" href="assets/img/Artboard%201%20(1).png">
+    <link rel="icon" type="image/png" sizes="576x576" href="assets/img/Artboard%201%20(1).png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="576x576" href="assets/img/Artboard%201%20(1).png">
+    <link rel="icon" type="image/png" sizes="576x576" href="assets/img/Artboard%201%20(1).png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="576x576" href="assets/img/Artboard%201%20(1).png">
+    <link rel="icon" type="image/png" sizes="576x576" href="assets/img/Artboard%201%20(1).png">
+    <link rel="icon" type="image/png" sizes="576x576" href="assets/img/Artboard%201%20(1).png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aguafina+Script&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allan&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allison&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allura&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amita&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="assets/css/Animated-Type-Heading.css">
+    <link rel="stylesheet" href="assets/css/Banner-Heading-Image-images.css">
+    <link rel="stylesheet" href="assets/css/Basic-fancyBox-Gallery.css">
+    <link rel="stylesheet" href="assets/css/Bold-BS4-Image-Caption-Hover-Effect-5.css">
+    <link rel="stylesheet" href="assets/css/Bootstrap-4---Team-Members.css">
+    <link rel="stylesheet" href="assets/css/divider-text-middle.css">
+    <link rel="stylesheet" href="assets/css/pikaday.min.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Footer-.css">
+    <link rel="stylesheet" href="assets/css/Responsive-footer-basicfooter.css">
+    <link rel="stylesheet" href="assets/css/Responsive-footer.css">
+    <link rel="stylesheet" href="assets/css/Responsive-Youtube-Embed.css">
+    <link rel="stylesheet" href="assets/css/Staff-Directory.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nasalization:wght@400;700&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+ <nav class="navbar navbar-expand-lg fixed-top portfolio-navbar gradient navbar-dark">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">
+                <span class="navbar-brand-fulll">SLMTA - LKMTA</span>
+
+            </a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav">
+                <span class="visually-hidden">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="theme-switcher dropdown" style="height: 17px;">
+                    <!-- ... your theme switcher dropdown content ... -->
+                </div>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://application.lkmta.site"> Apply Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <div class="content-gap">
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+</div>
+<div class="formbold-main-wrapper">
+  <!-- Author: FormBold Team -->
+  <!-- Learn More: https://formbold.com -->
+  <div class="formbold-form-wrapper">
+  <div class="formbold-event-wrapper">
+    <h3>Sri Lanka Music Therapy Association</h3>
+
+    <svg width="490" height="215" viewBox="0 0 490 215" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <image href="assets/img/2024_3.png" width="100%" height="100%" preserveAspectRatio="none"/>
+    <rect width="490" height="215" rx="5" fill="url(#pattern0)"/>
+    <defs>
+        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+            <!-- You can add any additional pattern styling here if needed -->
+        </pattern>
+    </defs>
+</svg>
+
+
+      <h4 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">JOIN WITH US,</h4>
+      <p>
+       "Welcome to the Sri Lanka Music Therapy Association! We invite you to join our community of passionate individuals dedicated to the transformative power of music therapy. SLMTA is committed to fostering a supportive network of professionals, enthusiasts, and advocates who recognize the profound impact of music on health and well-being. By becoming a member, you contribute to our collective mission of promoting and advancing the field of music therapy in Sri Lanka. Join us in creating harmonies that heal and inspire."
+      </p>
+
+        <div class="formbold-event-details"  id="alertBox">
+        <h5>Contact SLMTA - LKMTA: Harmony Awaits!</h5>
+
+        <ul>
+
+              "For any inquiries or information regarding the Sri Lanka Music Therapy Association (SLMTA - LKMTA), please feel free to contact us. You can reach us via email at info@lkmta.site or visit our official website www.lkmta.site. If you wish to connect with the President directly, you can reach out to the President's email at ceo@lkmta.site or contact them via phone at +94 77 428 0195 (Normal Calls only) or on WhatsApp at +94 77 483 2414. For coordination and general assistance, please contact our coordinator at +94 076 887 3414. If you prefer traditional mail, our association address is SLMTA, 24/2, Kokkawila, Chilaw, Sri Lanka. We look forward to hearing from you!"
+          
+        </ul>
+      </div>
+    </div>
+
+<form action="" id="contactForm">
+   <div class="alert alert-futuristic" id="alertBox" style="display: none;">
+    You will be added to the group soon
+    <span class="close-btn" onclick="closeAlert()">&times;</span>
+   </div>
+
+  <h2 class="formbold-form-title">Register now</h2>
+  <div class="formbold-input-flex">
+    <div>
+      <label for="firstname" class="formbold-form-label">First name*</label>
+      <input type="text" name="name" id="firstname" class="formbold-form-input"/>
+    </div>
+    <div>
+      <label for="lastname" class="formbold-form-label">Last name*</label>
+      <input type="text" name="lastname" id="lastname" class="formbold-form-input"/>
+    </div>
+  </div>
+
+  <div class="formbold-input-flex">
+    <div>
+      <label for="email" class="formbold-form-label">Email*</label>
+      <input type="email" name="emailid" id="email" class="formbold-form-input"/>
+    </div>
+    <div>
+      <label for="phone" class="formbold-form-label">Phone number*</label>
+      <input type="text" name="phone" id="phone" class="formbold-form-input"/>
+    </div>
+  </div>
+
+  <div class="formbold-input-flex">
+    <div>
+      <label for="jobtitle" class="formbold-form-label">WhatsApp Number*</label>
+      <input type="text" name="jobtitle" id="whatsapp" class="formbold-form-input"/>
+    </div>
+    <div>
+      <label for="company" class="formbold-form-label">School/Campus*</label>
+      <input type="text" name="company" id="schoolORcampus" class="formbold-form-input"/>
+    </div>
+  </div>
+
+  <div class="formbold-input-flex">
+    <div>
+      <label for="state" class="formbold-form-label">District*</label>
+      <input type="text" name="state" id="district" class="formbold-form-input"/>
+    </div>
+    <div>
+      <label for="country" class="formbold-form-label">Divisional Secretary*</label>
+      <input type="text" name="country" id="division" class="formbold-form-input"/>
+    </div>
+  </div>
+
+  <div>
+    <label for="postcode" class="formbold-form-label">Your Special Abilities*</label>
+    <input type="text" name="postcode" id="specials" class="formbold-form-input"/>
+  </div>
+
+  <p class="formbold-policy">
+    Please submit only once, after 24 ours of submit we'll add you to the group. for additional info. contact us.
+    <a href="#" id="privacy-policy-link">privacy policy.</a>
+  </p>
+
+  <div id="privacy-policy-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Privacy Policy</h2>
+      <p>Last updated: February 14, 2024</p>
+      <p>Welcome to Sri Lanka Music Therapy Association (SLMTA - LKMTA)! We are committed to ensuring the privacy and confidentiality of our members and visitors. This privacy policy outlines how we collect, use, disclose, and safeguard your personal information.</p>
+      <h3>Information We Collect:</h3>
+      <p>1. <strong>Membership Information:</strong> When you join SLMTA, we collect personal information, including your name, contact details, and professional background.</p>
+      <p>2. <strong>Website Usage Data:</strong> We may gather non-personal information, such as IP addresses, browser types, and pages visited, to improve our website's functionality and user experience.</p>
+      <p>3. <strong>Communication Data:</strong> If you contact us through emails or other communication channels, we may retain the content for record-keeping and customer service purposes.</p>
+      <h3>How We Use Your Information:</h3>
+      <p>1. <strong>Membership Management:</strong> We use your membership information to administer your account, provide member benefits, and communicate relevant updates.</p>
+      <p>2. <strong>Website Improvement:</strong> Non-personal information helps us analyze website traffic, improve content, and enhance user experience.</p>
+      <p>3. <strong>Communication:</strong> We may use your contact details to send important updates, newsletters, or event notifications related to SLMTA.</p>
+      <h3>Information Sharing:</h3>
+      <p>SLMTA does not sell, rent, or trade your personal information to third parties. We may share data with trusted partners for specific purposes, such as event coordination or member services, while ensuring confidentiality.</p>
+      <h3>Data Security:</h3>
+      <p>We employ industry-standard security measures to protect your information from unauthorized access, disclosure, alteration, or destruction.</p>
+      <h3>Your Choices:</h3>
+      <p>You can update your membership information or communication preferences at any time by contacting us at ceo@lkmta.site
+
+
+        <h3>Policy Changes:</h3>
+        <p>SLMTA may update this privacy policy periodically. Please review the latest version on our website to stay informed about our information practices.</p>
+
+        <h3>Contact Us:</h3>
+        <p>If you have any questions or concerns regarding this privacy policy, please contact us at info@lkmta.site.</p>
+  </div>
+</div>
+
+      <button href="https://chat.whatsapp.com/GwEQz13nn4V0GBVpssTStA" type="submit" class="formbold-btn">Register as member</button>
+    </form>
+  </div>
+</div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script src="./mail.js"></script>
+
+    <script>
+
+  // JavaScript to handle modal display
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get the modal
+    var modal = document.getElementById('privacy-policy-modal');
+
+    // Get the link that opens the modal
+    var privacyPolicyLink = document.getElementById('privacy-policy-link');
+
+    // Get the <span> element that closes the modal
+    var closeBtn = document.getElementsByClassName('close')[0];
+
+    // When the user clicks on the link, open the modal
+    privacyPolicyLink.onclick = function() {
+      modal.style.display = 'block';
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    closeBtn.onclick = function() {
+      modal.style.display = 'none';
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+  });
+</script>
+<style>
+    .alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    color: #3498db;
+    background-color: #ecf0f1;
+    position: relative;
+}
+
+.alert.alert-futuristic {
+    background-color: #3498db;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #ffffff;
+}
+
+/* Add the following CSS for mobile responsiveness */
+@media only screen and (max-width: 600px) {
+    .alert {
+        width: 80%; /* Adjust the width as needed */
+        margin: 0 auto; /* Center the alert on mobile */
+    }
+}
+
+   /* Your existing             styles here */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+  }
+
+  /* Modal Styling */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #007BFF, #ffffff, #3F51B5); /* Blue, White, Indigo Gradient */
+  }
+
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white background */
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    max-height: 70vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
+  }
+
+  /* Close Button Styling */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+  }
+
+  /* Heading Styling */
+  h2 {
+    color: #007BFF;
+  }
+
+  /* Strong Text Styling */
+  strong {
+    color: #007BFF;
+  }
+
+  /* Paragraph Styling */
+  p {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  /* Media Query for Mobile Responsiveness */
+  @media only screen and (max-width: 600px) {
+    .modal-content {
+      max-width: 100%;
+    }
+  }
+
+  /* Your existing           styles here */
+
+   .navbar-brand-full {
+    font-family: 'Nasalization', sans-serif; /* Apply Nasalization font on larger screens */
+  }
+
+  @media (max-width: 767px) {
+    .navbar-brand-full {
+      font-family: 'Nasalization', sans-serif !important; /* Apply Nasalization font on smaller screens */
+    }
+  }
+
+
+.navbar-brand-mobile {
+    display: block; /* Show the full brand name on all screen sizes */
+}
+svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Add a subtle drop shadow */
+}
+
+    
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  .content-gap {
+    margin-top: 80px; /* You can adjust the value to control the gap */
+  }
+  .formbold-main-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+  }
+
+  .formbold-form-wrapper {
+    margin: 0 auto;
+    max-width: 550px;
+    width: 100%;
+    background: white;
+  }
+
+  .formbold-event-wrapper span {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 2.5px;
+    color: #6a64f1;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .formbold-event-wrapper h3 {
+     font-weight: 700;
+     font-size: 28px;
+     line-height: 34px;
+     color: #07074d;
+     width: 100%;
+     margin-bottom: 10px; /* Add a margin-bottom to create a gap */
+     white-space: normal; /* Change to "normal" to allow wrapping */
+     overflow: hidden; /* Hide overflow content */
+     text-overflow: ellipsis; /* Display an ellipsis (...) to indicate overflow */
+}
+  .formbold-event-wrapper h4 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: #07074d;
+    width: 60%;
+    margin: 15px 0 10px; /* Adjust the margin to create space */
+}
+
+  .formbold-event-wrapper p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #536387;
+  }
+
+  .formbold-event-details {
+    background: #fafafa;
+    border: 1px solid #dde3ec;
+    border-radius: 5px;
+    margin: 25px 0 30px;
+  }
+  .formbold-event-details h5 {
+    color: #07074d;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    padding: 15px 25px;
+  }
+  .formbold-event-details ul {
+    border-top: 1px solid #edeef2;
+    padding: 25px;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 14px;
+  }
+  .formbold-event-details ul li {
+    color: #536387;
+    font-size: 16px;
+    line-height: 24px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .formbold-form-title {
+    color: #07074d;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 35px;
+    width: 60%;
+    margin-bottom: 30px;
+  }
+
+  .formbold-input-flex {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+  }
+  .formbold-input-flex > div {
+    width: 50%;
+  }
+  .formbold-form-input {
+    text-align: center;
+    width: 100%;
+    padding: 13px 22px;
+    border-radius: 5px;
+    border: 1px solid #dde3ec;
+    background: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    color: #536387;
+    outline: none;
+    resize: none;
+  }
+  .formbold-form-input:focus {
+    border-color: #6a64f1;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+  .formbold-form-label {
+    color: #536387;
+    font-size: 14px;
+    line-height: 24px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .formbold-policy {
+    font-size: 14px;
+    line-height: 24px;
+    color: #536387;
+    width: 70%;
+    margin-top: 22px;
+  }
+  .formbold-policy a {
+    color: #6a64f1;
+  }
+  .formbold-btn {
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 14px 25px;
+    border: none;
+    font-weight: 500;
+    background-color: #6a64f1;
+    color: white;
+    cursor: pointer;
+    margin-top: 25px;
+  }
+  .formbold-btn:hover {
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+    svg {
+    max-width: 100%; /* Make the SVG container responsive */
+    height: auto; /* Maintain the aspect ratio */
+    display: block; /* Remove extra space below the inline element */
+    margin-bottom: 15px; /* Add some margin for better spacing */
+}
+
+    /* Add this style block to your existing styles */
+
+
+
+</style>
+
+    <div style="height: 352px;background: url(&quot;assets/img/husma%205.jpg&quot;) center / cover;">
+        <footer style="height: 829px;padding: 254px 50px;margin: 311px 0px 0px;">
+            <div class="row">
+                <div class="col-sm-6 col-md-4 footer-navigation">
+                    <h3><a href="#">Music<span>Therapy</span></a></h3>
+                    <p class="links">SLMTA - LKMTA - 2023</p>
+                    <p class="company-name">&nbsp;SLMTA-Husma © 2024</p>
+                </div>
+                <div class="col-sm-6 col-md-4 footer-contacts">
+                    <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+                        <p><span class="new-line-span">24/2, Kokkawila, Mugunuwatawana</span>Chilaw, NWP</p>
+                    </div>
+                    <div><i class="fa fa-phone footer-contacts-icon"></i>
+                        <p class="footer-center-info email text-start">+94 77 428 0195</p>
+                    </div>
+                    <div><i class="fa fa-envelope footer-contacts-icon"></i>
+                        <p> <a href="#" target="_blank">ceo@lkmta.site</a></p>
+                    </div>
+                </div>
+                <div class="col-md-4 footer-about">
+                    <h4>Sri Lanka Music Therapy Association</h4>
+                    <p>All rights reserved&nbsp;<span style="color: rgb(143, 146, 150);">©&nbsp;</span>2024<br><br></p>
+                    <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+    <script src="assets/js/Basic-fancyBox-Gallery-myfancybox.js"></script>
+    <script src="assets/js/Animated-Type-Heading-type-headline.js"></script>
+    <script src="assets/js/pikaday.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>
